@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Actions du Trader</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<h1>Actions possédées par le trader</h1>
+<a th:href="@{'/'}" class="button">Home</a>
+<table border="1">
+  <tr>
+    <th>Nom</th>
+    <th>Quantité</th>
+    <th>Prix d'achat</th>
+    <th>Vendre</th>
+  </tr>
+  <tr th:each="action : ${actions}">
+    <td th:text="${action.nom}"></td>
+    <td th:text="${action.quantite}"></td>
+    <td th:text="${action.prix}"></td>
+    <td><a th:href="@{'/traders/' + ${action.numTrader} + '/actions/' + ${action.id} + '/vendre'}" class="button">Vendre</a></td>
+  </tr>
+</table>
+<a th:href="@{'/traders/' + ${traderId} + '/actionsNotIn'}" class="button">Acheter</a>
+</body>
+</html>

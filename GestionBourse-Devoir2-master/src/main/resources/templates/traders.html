@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestion Bourse - Traders</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<h1>Liste des traders</h1>
+<table border="1">
+  <tr>
+    <th>Nom</th>
+    <th>Actions</th>
+  </tr>
+  <tr th:each="trader : ${traders}">
+    <td th:text="${trader.nomTrader}"></td>
+    <td><a th:href="@{'/traders/' + ${trader.id} + '/actions'}" class="button">Les actions</a></td>
+  </tr>
+</table>
+</body>
+</html>

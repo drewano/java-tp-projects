@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Acheter Action</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<h1>Acheter Action</h1>
+<a th:href="@{'/traders/' + ${actionDto.numTrader} + '/actionsNotIn'}" class="button">Retour</a>
+
+<form th:action="@{'/traders/' + ${actionDto.numTrader} + '/actions/' + ${actionDto.id} + '/acheter'}"
+      th:object="${actionDto}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{nom}" />
+    <input type="hidden" th:field="*{numTrader}" />
+
+    <p>Nom de l'action: <span th:text="*{nom}"></span></p>
+    <p>Quantité à acheter: <input type="number" th:field="*{quantite}" min="1" required /></p>
+    <p>Prix d'achat: <input type="number" th:field="*{prix}" step="0.01" required /></p>
+    <button type="submit">Acheter</button>
+</form>
+</body>
+</html>

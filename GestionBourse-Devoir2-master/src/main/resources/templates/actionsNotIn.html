@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Actions disponibles</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<h1>Actions disponibles à l'achat</h1>
+<a th:href="@{'/traders/' + ${traderId} + '/actions'}" class="button">Retour</a>
+<table border="1">
+  <tr>
+    <th>Nom</th>
+    <th>Acheter</th>
+  </tr>
+  <tr th:each="action : ${actions}">
+    <td th:text="${action.nomAction}"></td>
+    <td><a th:href="@{'/traders/' + ${traderId} + '/actions/' + ${action.id} + '/acheter'} " class="button">Acheter</a></td>
+  </tr>
+</table>
+</body>
+</html>
