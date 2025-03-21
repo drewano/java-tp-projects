@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <title>Allociné</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/fonction.js"></script>
+
+
+</head>
+<body>
+<h1>Liste des cinémas</h1>
+<div class="cinema-grid">
+    <div th:each="cinema : ${cinemas}" class="cinema-card">
+        <img th:src="${cinema.imageCine}" alt="Image du cinéma">
+        <div class="cinema-details">
+            <h2 th:text="${cinema.nomCine}"></h2>
+            <button th:data-codecinema="${cinema.codeCine}" class="btn">Films</button>
+        </div>
+    </div>
+</div>
+<div id="divFilms"></div>
+</body>
+
+</html>

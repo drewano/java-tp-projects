@@ -1,0 +1,165 @@
+/* Style général pour le corps */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style du titre principal */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Container pour les cartes de cinéma */
+.cinema-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Styles pour chaque carte de cinéma */
+.cinema-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Effet au survol pour les cartes */
+.cinema-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour les images de cinéma */
+.cinema-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Style pour les détails du cinéma */
+.cinema-details {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Style pour le nom du cinéma */
+.cinema-details h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style pour les boutons */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Changement de couleur au survol du bouton */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Container pour les cartes de films */
+.film-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Styles pour chaque carte de film */
+.film-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Effet au survol pour les cartes de film */
+.film-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour les images de film */
+.film-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Style pour les détails du film */
+.film-details {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Style pour le nom du film */
+.film-details h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.h2-vrmtstyle {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style for the rating stars */
+.rating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #ffcc00;
+}
+
+.star.selected {
+    color: #ffcc00;
+}
+
+/* Style for the vote information */
+.film-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
