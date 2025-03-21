@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secteurs et Rayons</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/fonction.js"></script>
+</head>
+<body>
+<h1>Liste des Secteurs</h1>
+<ul id="secteurs">
+    <li th:each="secteur : ${secteurs}">
+        <a href="#" th:attr="data-id=${secteur.id}" class="secteur-link" th:text="${secteur.nomS}"></a>
+    </li>
+</ul>
+
+<h2>Rayons</h2>
+<table id="rayons-table" border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+    </tr>
+    </thead>
+    <tbody id="rayons"></tbody>
+</table>
+
+<h2>Informations du Rayon</h2>
+<div id="rayon-info">
+    <h3>Employés ayant travaillé dans le rayon</h3>
+    <ul id="employes-by-rayon"></ul>
+    <h3>Total d'heures pour le rayon</h3>
+    <p id="total-hours"></p>
+    <h3>Liste de tous les employés</h3>
+    <ul id="all-employes"></ul>
+</div>
+
+</body>
+</html>
