@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzéria</title>
+    <link rel="stylesheet" th:href="@{/CSS/PartielStyles.css}">
+    <script src="/JS/PartielFonctions.js" defer></script>
+</head>
+<body>
+<h1>Commande Pizzéria</h1>
+
+<form th:action="@{/order}" method="post" id="orderForm">
+    <div class="header">
+        <div>
+            <label>Numéro de commande :</label>
+            <input type="text" id="commandeNumber" name="commandeNumber" readonly th:value="${nextCommande}" />
+        </div>
+        <div>
+            <label>Client :</label>
+            <select id="clientSelect" name="clientSelect">
+                <option th:each="client : ${clients}"
+                        th:value="${client.id}"
+                        th:text="${client.nomCli}"
+                        th:selected="${client.id == defaultClientId}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Livreur :</label>
+            <select id="livreurSelect" name="livreurSelect">
+                <option th:each="livreur : ${livreurs}"
+                        th:value="${livreur.id}"
+                        th:text="${livreur.nomLiv}"
+                        th:selected="${livreur.id == defaultLivreurId}">
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <table id="pizzasTable">
+        <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Nombre de personnes</th>
+            <th>Prix (€)</th>
+            <th>Quantité</th>
+            <th>Quantité choisie</th>
+            <th>Total ligne (€)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pizza : ${pizzas}">
+            <td th:text="${pizza.numPiz}"></td>
+            <td th:text="${pizza.nomPiz}"></td>
+            <td th:text="${pizza.nbPers}"></td>
+            <td th:text="${pizza.prix}"></td>
+            <td>
+                <input type="range" min="0" max="10" value="0"
+                       th:id="'slider-' + ${pizza.numPiz}"
+                       th:name="'quantity_' + ${pizza.numPiz}"
+                       oninput="updateTotals()" />
+            </td>
+            <td>
+                <span th:id="'qty-' + ${pizza.numPiz}">0</span>
+            </td>
+            <td>
+                <span th:id="'total-' + ${pizza.numPiz}">0.00</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <span id="orderTotal">Total : 0.00 €</span>
+    </div>
+    <div>
+        <button type="submit">Commander</button>
+    </div>
+</form>
+
+<div th:if="${message}">
+    <p th:text="${message}"></p>
+</div>
+</body>
+</html>
